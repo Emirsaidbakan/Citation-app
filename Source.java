@@ -4,29 +4,101 @@ public class Source {
 
     enum Type {
         book,
+        /*info order:
+        * 2: publisher 
+        */
         article_standalone,
+        /*info order:
+        * 2: month day
+        * 3: publication
+        * 4: URL
+        */
         article_journal,
+        /*
+         * info order:
+         * 2: journal
+         * 3: volume(issue)
+         * 4: pages
+         * 5: DOI
+         */
         video,
+        /*
+         * info order:
+         * 2: platform
+         * 3: URL
+         */
         movie,
+        /*
+         * info order:
+         * 2: production company
+         */
         wikipedia
+        /*
+         * info order:
+         * 2: Month day
+         * 3: URL
+         */
     }
 
     private Type type;
     private ArrayList<String> authors;
+    private ArrayList<String[]> authorInfo;
     private String[] info;
+    /*info order:
+     * 0: title
+     * 1: year
+     * the rest depends on the source 
+     */
 
-    private static ArrayList<String> allAuthors;
+    private static ArrayList<Source> sources;
 
     public Source(ArrayList<String> authors, String[] info, Type type) {
         this.type = type;
         this.authors = authors;
         this.info = info;
+        sources.add(this);
+
+        /*
+         * authorInfo[a] carries info for authors[a]
+         * 
+         * authorInfo[0] is the surname
+         * the rest is the first name, middle name, etc.
+         */
+        for (int i = 0; i < authors.size(); i++) {
+            authorInfo.add( new String[authors.get(i).split(" ").length] );
+            authorInfo.get(i)[0] = authors.get(i).split(" ")[ authors.get(i).split(" ").length - 1 ];
+            for (int j = 1; j < authorInfo.get(i).length; j++) {
+                authorInfo.get(i)[j] = authors.get(i).split(" ")[j];
+            }
+        }
     }
 
     public String inText() {
         switch (type) {
             case book:
-                return "(" + info[3].split(" ")[0] + ", " + authors.get(0).split(" ")[1] + ")" ;
+
+                String result = "(" + authorInfo.get(0)[0];         
+
+                for (int i = 0; i < sources.size(); i++) {
+
+                    for (int j = 1; j < sources.get(i).authors.size(); j++) {
+   
+                        if ( !sources.get(i).authorInfo.get(0)[0].equals(authorInfo.get(0)[0]) ) {
+                            continue;
+                        }
+
+                        if ( authors.get(j) != null && sources.get(i).authors.get(j).equals(authors.get(j)) ) {
+
+                            String[] authorInfo = authors.get(0).split(" ");
+                            result += authorInfo[authorInfo.length - 1] + ", ";
+                            continue;
+
+                        }
+                    }
+                    
+                }
+
+                return result;
             case article_standalone:
                 return "";
             case article_journal:
@@ -45,7 +117,7 @@ public class Source {
     public String references() {
         switch (type) {
 
-            //Author, A. A. (Year). **Title. Publisher.
+            //Author, A. A. (Year). **Title**. Publisher.
             case book:
             String bookAuthors = "";
             for (int i = 0; i < authors.size(); i++) {
@@ -56,7 +128,7 @@ public class Source {
             }
             return bookAuthors + " (" + info[1] + "). **" + info[0] + ".**" + info[2] + ".";
 
-            //Author, A. A. (Year, Month Day). Title. Publication. URL
+            //Author, A. A. (Year, Month Day). **Title**. Publication. URL 
             case article_standalone:
             String articleAuthors = "";
             for (int i = 0; i < authors.size(); i++) {

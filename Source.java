@@ -1,3 +1,4 @@
+import java.security.AuthProvider;
 import java.util.ArrayList;
 
 public class Source {
@@ -120,10 +121,15 @@ public class Source {
             //Author, A. A. (Year). **Title**. Publisher.
             case book:
             String bookAuthors = "";
-            for (int i = 0; i < authors.size(); i++) {
+            if (authors.size() > 2) {
+                bookAuthors = authors.get(0) + ", " + authors.get(1) + " et al.";
+            } 
+            else {
+                for (int i = 0; i < authors.size(); i++) {
                 bookAuthors += authors.get(i);
-                if (i < authors.size() - 1) {
+                    if (i < authors.size() - 1) {
                     bookAuthors += ", ";
+                    }
                 }
             }
             return bookAuthors + " (" + info[1] + "). **" + info[0] + ".**" + info[2] + ".";
@@ -131,10 +137,15 @@ public class Source {
             //Author, A. A. (Year, Month Day). **Title**. Publication. URL 
             case article_standalone:
             String articleAuthors = "";
-            for (int i = 0; i < authors.size(); i++) {
-                articleAuthors += authors.get(i);
-                if( i < authors.size()-1) {
-                    articleAuthors += ", ";
+            if(authors.size() > 2) {
+                articleAuthors = authors.get(0) + ", " + authors.get(1) + "et al.";
+            }
+            else {
+                for (int i = 0; i < authors.size(); i++) {
+                    articleAuthors += authors.get(i);
+                        if( i < authors.size()-1) {
+                            articleAuthors += ", ";
+                        }
                 }
             }
             return articleAuthors + " (" + info[1] + ", " + info[2] + "). " + info[0] + ". **" + info[3] + "**. " + info[4] + ".";
@@ -142,10 +153,15 @@ public class Source {
             //Author, A. A. (Year). Title. Journal Name, Volume(Issue), pages. DOI
             case article_journal:
                 String journalAuthors = "";
-                for (int i = 0; i < authors.size(); i++) {
-                    journalAuthors += authors.get(i);
-                    if (i < authors.size() - 1) {
-                        journalAuthors += ", ";
+                if (authors.size() > 2) {
+                    journalAuthors = authors.get(0) + ", " + authors.get(1) + " et al.";
+                }
+                else {
+                    for (int i = 0; i < authors.size(); i++) {
+                        journalAuthors += authors.get(i);
+                        if (i < authors.size() - 1) {
+                            journalAuthors += ", ";
+                        }
                     }
                 }
                 return journalAuthors + " (" + info[1] + "). " + info[0] + ". **" + info[2] + "**, " + info[3] + "(" + info[4] + "), " + info[5] + ". " + info[6] + ".";

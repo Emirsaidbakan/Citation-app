@@ -1,0 +1,33 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\Users\\ASUS\\Desktop\\Citation app\\javafx-sdk1.3\\lib\\desktop\\decora-d3d.jar",
+        "c:\\Users\\ASUS\\Desktop\\Citation app\\javafx-sdk1.3\\lib\\desktop\\decora-j2d.jar",
+        "c:\\Users\\ASUS\\Desktop\\Citation app\\javafx-sdk1.3\\lib\\desktop\\decora-j2d-rsl.jar",
+        "c:\\Users\\ASUS\\Desktop\\Citation app\\javafx-sdk1.3\\lib\\desktop\\decora-jsw.jar",
+        "c:\\Users\\ASUS\\Desktop\\Citation app\\javafx-sdk1.3\\lib\\desktop\\decora-ogl.jar",
+        "c:\\Users\\ASUS\\Desktop\\Citation app\\javafx-sdk1.3\\lib\\desktop\\decora-runtime.jar",
+        "c:\\Users\\ASUS\\Desktop\\Citation app\\javafx-sdk1.3\\lib\\desktop\\decora-sse.jar",
+        "c:\\Users\\ASUS\\Desktop\\Citation app\\javafx-sdk1.3\\lib\\desktop\\eula.jar",
+        "c:\\Users\\ASUS\\Desktop\\Citation app\\javafx-sdk1.3\\lib\\desktop\\fxdloader.jar",
+        "c:\\Users\\ASUS\\Desktop\\Citation app\\javafx-sdk1.3\\lib\\desktop\\javafx-anim.jar",
+        "c:\\Users\\ASUS\\Desktop\\Citation app\\javafx-sdk1.3\\lib\\desktop\\javafx-common.jar",
+        "c:\\Users\\ASUS\\Desktop\\Citation app\\javafx-sdk1.3\\lib\\desktop\\javafx-ext-swing.jar",
+        "c:\\Users\\ASUS\\Desktop\\Citation app\\javafx-sdk1.3\\lib\\desktop\\javafx-geom.jar",
+        "c:\\Users\\ASUS\\Desktop\\Citation app\\javafx-sdk1.3\\lib\\desktop\\javafx-io.jar",
+        "c:\\Users\\ASUS\\Desktop\\Citation app\\javafx-sdk1.3\\lib\\desktop\\javafxrt-main.jar",
+        "c:\\Users\\ASUS\\Desktop\\Citation app\\javafx-sdk1.3\\lib\\desktop\\javafx-sg-common.jar",
+        "c:\\Users\\ASUS\\Desktop\\Citation app\\javafx-sdk1.3\\lib\\desktop\\javafx-sg-swing.jar",
+        "c:\\Users\\ASUS\\Desktop\\Citation app\\javafx-sdk1.3\\lib\\desktop\\javafx-ui-charts.jar",
+        "c:\\Users\\ASUS\\Desktop\\Citation app\\javafx-sdk1.3\\lib\\desktop\\javafx-ui-common.jar",
+        "c:\\Users\\ASUS\\Desktop\\Citation app\\javafx-sdk1.3\\lib\\desktop\\javafx-ui-controls.jar",
+        "c:\\Users\\ASUS\\Desktop\\Citation app\\javafx-sdk1.3\\lib\\desktop\\javafx-ui-desktop.jar",
+        "c:\\Users\\ASUS\\Desktop\\Citation app\\javafx-sdk1.3\\lib\\desktop\\javafx-ui-swing.jar",
+        "c:\\Users\\ASUS\\Desktop\\Citation app\\javafx-sdk1.3\\lib\\desktop\\jmc.jar",
+        "c:\\Users\\ASUS\\Desktop\\Citation app\\javafx-sdk1.3\\lib\\desktop\\jogl-awt.jar",
+        "c:\\Users\\ASUS\\Desktop\\Citation app\\javafx-sdk1.3\\lib\\desktop\\jogl-common.jar",
+        "c:\\Users\\ASUS\\Desktop\\Citation app\\javafx-sdk1.3\\lib\\desktop\\rt15.jar",
+        "c:\\Users\\ASUS\\Desktop\\Citation app\\javafx-sdk1.3\\lib\\desktop\\script-api.jar",
+        "c:\\Users\\ASUS\\Desktop\\Citation app\\javafx-sdk1.3\\lib\\desktop\\websvc.jar"
+    ]
+}

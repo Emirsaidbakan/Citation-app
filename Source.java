@@ -102,179 +102,119 @@ public class Source {
     }
 
     public String inText() {
-
-        String result = "(" + authorInfo.get(0)[0];
-
+        String result = "(" + authorInfo.get(0)[0]; // İlk yazarın soyadı ile başla
+    
         switch (type) {
-            
             case book:
-
                 if (authors.size() > 2) {
-
-                    result += " et al., " + info[1];
-
+                    result += " et al."; // Üç veya daha fazla yazar varsa "et al." ekle
                 } else if (authors.size() == 2) {
-                    result += " & " + authorInfo.get(1)[0] + ", " + info[1];
-
-                } else {
-                    result += ", " + info[1];
-
+                    result += " & " + authorInfo.get(1)[0]; // İkinci yazarın soyadını ekle
                 }
-
-                if (info.length > 3) {
-                    result += ", " + info[3] + ")";
-                } else {
-                    result += ")";
-                }
-
-                return result;
-
+                result += ", " + info[1] + ")"; // Yıl bilgisini ekle ve parantezi kapa
+                break;
+    
             case article_standalone:
-
-                result = "(" + authorInfo.get(0)[0];
-
                 if (authors.size() > 2) {
-
-                    result += " et al., " + info[1];
-
+                    result += " et al.";
                 } else if (authors.size() == 2) {
-                    result += " & " + authorInfo.get(1)[0] + ", " + info[1];
-
-                } else {
-                    result += ", " + info[1];
-
+                    result += " & " + authorInfo.get(1)[0];
                 }
-
-                if (info.length > 4) {
-                    result += ", " + info[5] + ")";
-                } else {
-                    result += ")";
-                }
-
-                return result;
-
+                result += ", " + info[1] + ")"; // Yıl bilgisi ekleniyor
+                break;
+    
             case article_journal:
-            
-                result = "(" + authorInfo.get(0)[0];
-
                 if (authors.size() > 2) {
-
-                    result += " et al., " + info[1];
-
+                    result += " et al.";
                 } else if (authors.size() == 2) {
-                    result += " & " + authorInfo.get(1)[0] + ", " + info[1];
-
-                } else {
-                    result += ", " + info[1];
-
+                    result += " & " + authorInfo.get(1)[0];
                 }
-
-                if (info.length > 4) {
-                    result += ", " + info[5] + ")";
-                } else {
-                    result += ")";
-                }
-
-                return result;
-
+                result += ", " + info[1] + ")"; // Yıl bilgisi ekleniyor
+                break;
+    
             case video:
-                return "";
+                result = "(" + authors.get(0) + ", " + info[1] + ")"; // Kanal veya oluşturucu adı ve yıl
+                break;
+    
             case movie:
-                return "";
+                result = "(" + authors.get(0) + " (Director), " + info[1] + ")"; // Yönetmen adı ve yıl bilgisi
+                break;
+    
             case wikipedia:
-                return "";
+                result = "(" + "**" + info[0] + "**, " + info[1] + ")"; // Başlık ve yıl bilgisi
+                break;
+    
             default:
-                return "";
+                result = ""; // Desteklenmeyen türlerde boş döndür
+                break;
+        }
+    
+        return result;
+    }
+    
+
+   public String references(ArrayList<String> existingCitations) {
+    switch (type) {
+
+        // Author, A. A. (Year). **Title**. Publisher.
+        case book:
+            String bookAuthors = getFormattedAuthors(authors, existingCitations);
+            return bookAuthors + " (" + resolveYearConflict(info[1], bookAuthors, existingCitations) + "). **" + info[0] + ".** " + info[2] + ".";
+
+        // Author, A. A. (Year, Month Day). **Title**. Publication. URL 
+        case article_standalone:
+            String articleAuthors = getFormattedAuthors(authors, existingCitations);
+            return articleAuthors + " (" + resolveYearConflict(info[1], articleAuthors, existingCitations) + ", " + info[2] + "). " + info[0] + ". **" + info[3] + "**. " + info[4] + ".";
+
+        // Author, A. A. (Year). Title. Journal Name, Volume(Issue), pages. DOI
+        case article_journal:
+            String journalAuthors = getFormattedAuthors(authors, existingCitations);
+            return journalAuthors + " (" + resolveYearConflict(info[1], journalAuthors, existingCitations) + "). " + info[0] + ". **" + info[2] + "**, " + info[3] + "(" + info[4] + "), " + info[5] + ". " + info[6] + ".";
+
+        // Author/Channel. (Year, Month Day). Title [Video]. Platform. URL
+        case video:
+            return authors.get(0) + ". (" + info[1] + ", " + info[2] + "). " + info[0] + " [Video]. **" + info[3] + "**. " + info[4] + ".";
+
+        // Director, A. A. (Director). (Year). Title [Film]. Prod Company.
+        case movie: 
+            return authors.get(0) + " (Director). (" + info[1] + "). " + info[0] + " [Film]. **" + info[2] + "**.";
+
+        // Entry Title. (Year, Month day). In Wikipedia. URL
+        case wikipedia:
+            return "**" + info[0] + "**. (" + info[1] + ", " + info[2] + "). In **Wikipedia**. " + info[3] + ".";
+
+        // default
+        default:
+            return "";
+    }      
+}
+
+private String getFormattedAuthors(ArrayList<String> authors, ArrayList<String> existingCitations) {
+    if (authors.size() > 2) {
+        return authors.get(0) + ", " + authors.get(1) + " et al.";
+    } else {
+        StringBuilder formattedAuthors = new StringBuilder();
+        for (int i = 0; i < authors.size(); i++) {
+            formattedAuthors.append(authors.get(i));
+            if (i < authors.size() - 1) {
+                formattedAuthors.append(", ");
+            }
+        }
+        return formattedAuthors.toString();
+    }
+}
+
+private String resolveYearConflict(String year, String authorList, ArrayList<String> existingCitations) {
+    int conflictCount = 0;
+    for (String citation : existingCitations) {
+        if (citation.contains(authorList) && citation.contains(year)) {
+            conflictCount++;
         }
     }
-
-    public String references() {
-        switch (type) {
-
-            // Author, A. A. (Year). **Title**. Publisher.
-            case book:
-            String bookAuthors = "";
-            if (authors.size() > 2) {
-                bookAuthors = authors.get(0) + ", " + authors.get(1) + " et al.";
-            } 
-            else {
-                for (int i = 0; i < authors.size(); i++) {
-                bookAuthors += authors.get(i);
-                    if (i < authors.size() - 1) {
-                    bookAuthors += ", ";
-                    }
-                }
-            }
-            return bookAuthors + " (" + info[1] + "). **" + info[0] + ".**" + info[2] + ".";
-
-            // Author, A. A. (Year, Month Day). **Title**. Publication. URL
-            case article_standalone:
-            String articleAuthors = "";
-            if(authors.size() > 2) {
-                articleAuthors = authors.get(0) + ", " + authors.get(1) + "et al.";
-            }
-            else {
-                for (int i = 0; i < authors.size(); i++) {
-                    articleAuthors += authors.get(i);
-                        if( i < authors.size()-1) {
-                            articleAuthors += ", ";
-                        }
-                }
-            }
-            return articleAuthors + " (" + info[1] + ", " + info[2] + "). " + info[0] + ". **" + info[3] + "**. " + info[4] + ".";
-            
-            //Author, A. A. (Year). Title. Journal Name, Volume(Issue), pages. DOI
-            case article_journal:
-                String journalAuthors = "";
-                if (authors.size() > 2) {
-                    journalAuthors = authors.get(0) + ", " + authors.get(1) + " et al.";
-                }
-                else {
-                    for (int i = 0; i < authors.size(); i++) {
-                        journalAuthors += authors.get(i);
-                        if (i < authors.size() - 1) {
-                            journalAuthors += ", ";
-                        }
-                    }
-                }
-                return journalAuthors + " (" + info[1] + "). " + info[0] + ". **" + info[2] + "**, " + info[3] + "(" + info[4] + "), " + info[5] + ". " + info[6] + ".";
-            
-            //Author/Channel. (Year, Month Day). Title [Video]. Platform. URL
-            case video:
-                return authors.get(0) + ". (" + info[1] + ", " + info[2] + "). " + info[0] + " [Video]. **" + info[3]
-                        + "**. " + info[4] + ".";
-
-            // Director, A. A. (Director). (year). Title [Film]. Prod Company.
-            case movie:
-                return authors.get(0) + " (Director). (" + info[1] + "). " + info[0] + " [Film]. **" + info[2] + "**.";
-
-            // Entry Title. (Year, Month day). In Wikipedia. URL
-            case wikipedia:
-                return "**" + info[0] + "**. (" + info[1] + ", " + info[2] + "). In **Wikipedia**. " + info[3] + ".";
-
-            // default
-            default:
-                return "";
-        }
+    if (conflictCount > 0) {
+        char suffix = (char) ('a' + conflictCount);
+        return year + suffix;
     }
-
-//WIP Implementation for distinctions
-//e.g. (Emir, Beren, Aybegüm et al., 2012) vs (Emir, Beren, Merve et al., 2012)
-/*     public int whichNamesToInclude() {
-
-        int count = 0;
-
-        for (int i = 0; i < sources.size(); i++) {
-
-            for (int j = 0; j < authorInfo.size(); j++) {
-                if (authorInfo.get(j)[0].equals(sources.get(i).authorInfo.get(j)[0])) {
-                    count++;
-                }
-            }
-
-        }
-
-        return count;
-
-    } */
+    return year;
+}
 }

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.CubicCurve?>
+<?import javafx.scene.shape.Ellipse?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0b1e38" height="412.0" layoutX="-12.0" layoutY="-12.0" stroke="#032748" strokeType="INSIDE" width="612.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#032748" height="288.0" layoutX="41.0" layoutY="53.0" stroke="#032748" strokeType="INSIDE" width="534.0" />
+      <Text fill="WHITE" layoutX="122.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CitationApp">
+         <font>
+            <Font name="Goudy Old Style Bold" size="67.0" />
+         </font>
+      </Text>
+      <CubicCurve controlX1="5.79998779296875" controlX2="-70.20001220703125" controlY1="-19.800003051757812" controlY2="161.0" endX="526.2000122070312" endY="121.99998474121094" layoutX="4.0" layoutY="86.0" startX="159.4000244140625" startY="197.0" stroke="#032748">
+         <fill>
+            <LinearGradient endX="1.0" endY="0.4962120643167784" startY="0.46969702749541314">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.006729475100942127">
+                     <color>
+                        <Color red="0.04313725605607033" green="0.11764705926179886" blue="0.21960784494876862" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.5254902243614197" green="0.7372549176216125" blue="0.9372549057006836" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </CubicCurve>
+      <CubicCurve controlX1="157.06434631347656" controlX2="191.21026611328125" controlY1="155.99998474121094" controlY2="136.59999084472656" endX="634.6048583984375" endY="187.1999969482422" layoutX="-79.0" layoutY="-35.0" startX="111.00000762939453" startY="155.99998474121094" stroke="#032748">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.006729475100942127">
+                     <color>
+                        <Color red="0.04313725605607033" green="0.11764705926179886" blue="0.21960784494876862" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.5254902243614197" green="0.7372549176216125" blue="0.9372549057006836" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </CubicCurve>
+      <Ellipse fill="#0b1e38" layoutX="575.0" layoutY="197.0" radiusX="19.0" radiusY="156.0" stroke="#0b1e38" strokeType="INSIDE" />
+      <Ellipse fill="#0b1e38" layoutX="303.0" layoutY="49.0" radiusX="273.0" radiusY="18.0" stroke="#0b1e38" strokeType="INSIDE" />
+      <Ellipse fill="#0b1e38" layoutX="308.0" layoutY="341.0" radiusX="273.0" radiusY="23.0" stroke="#0b1e38" strokeType="INSIDE" />
+      <Ellipse fill="#0b1e38" layoutX="41.0" layoutY="194.0" radiusX="19.0" radiusY="156.0" stroke="#0b1e38" strokeType="INSIDE" />
+   </children>
+</AnchorPane>

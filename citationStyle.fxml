@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.CubicCurve?>
+<?import javafx.scene.shape.Ellipse?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0b1e38" height="430.0" layoutX="-6.0" layoutY="-19.0" stroke="#032748" strokeType="INSIDE" width="607.0" />
+      <Text fill="WHITE" layoutX="46.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CitationApp" wrappingWidth="187.32435607910156">
+         <font>
+            <Font name="Goudy Old Style Bold" size="31.0" />
+         </font>
+      </Text>
+      <CubicCurve controlX1="44.93461608886719" controlX2="303.5346374511719" controlY1="-87.0" controlY2="-41.05009078979492" endX="-156.99998474121094" endY="-96.80000305175781" layoutX="152.0" layoutY="87.0" startX="-156.99998474121094" startY="-62.656463623046875" stroke="#032748">
+         <fill>
+            <LinearGradient cycleMethod="REFLECT" endX="0.534090900963003" endY="1.0" startY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.04313725605607033" green="0.11764705926179886" blue="0.21960784494876862" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.006729475100942127">
+                     <color>
+                        <Color red="0.04313725605607033" green="0.11764705926179886" blue="0.21960784494876862" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.5254902243614197" green="0.7372549176216125" blue="0.9372549057006836" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </CubicCurve>
+      <CubicCurve controlX1="-472.3999938964844" controlX2="-225.99996948242188" controlY1="-77.59999084472656" controlY2="-35.19999694824219" endX="-7.6348114013671875" endY="-48.20000076293945" layoutX="244.0" layoutY="95.0" startX="-249.99998474121094" startY="-23.456466674804688" stroke="#032748">
+         <fill>
+            <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0" startX="0.18560606421846332" startY="0.2878787662043716">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.04313725605607033" green="0.11764705926179886" blue="0.21960784494876862" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.006729475100942127">
+                     <color>
+                        <Color red="0.04313725605607033" green="0.11764705926179886" blue="0.21960784494876862" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.5254902243614197" green="0.7372549176216125" blue="0.9372549057006836" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </CubicCurve>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="304.0" layoutX="29.0" layoutY="82.0" stroke="#0b1e38" strokeType="INSIDE" width="542.0">
+         <fill>
+            <RadialGradient centerX="1.0" cycleMethod="REPEAT" focusAngle="-153.74" radius="0.9770642464314032">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.04313725605607033" green="0.11764705926179886" blue="0.21960784494876862" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.006729475100942127">
+                     <color>
+                        <Color red="0.04313725605607033" green="0.11764705926179886" blue="0.21960784494876862" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.5254902243614197" green="0.7372549176216125" blue="0.9372549057006836" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Rectangle>
+      <Text fill="WHITE" layoutX="204.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Citation Styles" wrappingWidth="199.9999999999999">
+         <font>
+            <Font name="Times New Roman Bold" size="30.0" />
+         </font>
+      </Text>
+      <Ellipse fill="#0b1e38" layoutX="24.0" layoutY="234.0" radiusX="19.0" radiusY="156.0" stroke="#0b1e38" strokeType="INSIDE" />
+      <Ellipse fill="#0b1e38" layoutX="304.0" layoutY="386.0" radiusX="295.0" radiusY="18.0" stroke="#0b1e38" strokeType="INSIDE" />
+      <Ellipse fill="#0b1e38" layoutX="298.0" layoutY="82.0" radiusX="300.0" radiusY="18.0" stroke="#0b1e38" strokeType="INSIDE" />
+      <Ellipse fill="#0b1e38" layoutX="571.0" layoutY="244.0" radiusX="19.0" radiusY="156.0" stroke="#0b1e38" strokeType="INSIDE" />
+      <CubicCurve controlX1="-150.6639404296875" controlX2="208.135986328125" controlY1="8.3587646484375" controlY2="-71.20000457763672" endX="244.0" endY="96.63090515136719" layoutX="357.0" layoutY="18.0" startX="247.5360107421875" startY="-41.51084518432617" stroke="#0b1e38">
+         <fill>
+            <LinearGradient cycleMethod="REFLECT" endX="0.534090900963003" endY="1.0" startY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.04313725605607033" green="0.11764705926179886" blue="0.21960784494876862" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.006729475100942127">
+                     <color>
+                        <Color red="0.04313725605607033" green="0.11764705926179886" blue="0.21960784494876862" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.9919246298788695">
+                     <color>
+                        <Color red="0.5254902243614197" green="0.7372549176216125" blue="0.9372549057006836" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.5254902243614197" green="0.7372549176216125" blue="0.9372549057006836" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </CubicCurve>
+      <ComboBox editable="true" layoutX="174.0" layoutY="166.0" prefHeight="33.0" prefWidth="246.0" />
+   </children>
+</AnchorPane>

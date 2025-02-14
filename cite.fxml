@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.CubicCurve?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <!-- BACKGROUND SHAPES -->
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0b1e38" height="430.0" layoutX="0.0" layoutY="0.0" stroke="#032748" strokeType="INSIDE" width="600.0" />
+        
+        <Rectangle arcHeight="5.0" arcWidth="5.0" height="304.0" layoutX="30.0" layoutY="85.0" stroke="#0b1e38" strokeType="INSIDE" width="540.0">
+            <fill>
+                <RadialGradient centerX="1.0" centerY="1.0" cycleMethod="REPEAT" focusAngle="-153.74" focusDistance="-1.0" radius="0.56422">
+                    <stops>
+                        <Stop>
+                            <color>
+                                <Color red="0.043137256" green="0.117647059" blue="0.219607845" />
+                            </color>
+                        </Stop>
+                        <Stop offset="0.006729475">
+                            <color>
+                                <Color red="0.043137256" green="0.117647059" blue="0.219607845" />
+                            </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                            <color>
+                                <Color red="0.525490224" green="0.737254918" blue="0.937254906" />
+                            </color>
+                        </Stop>
+                    </stops>
+                </RadialGradient>
+            </fill>
+        </Rectangle>
+        
+        <CubicCurve controlX1="-472.4" controlX2="-226.0" controlY1="-77.6" controlY2="-35.2" endX="-7.63" endY="-48.2" layoutX="254.0" layoutY="105.0" startX="-250.0" startY="-23.456466674804688" stroke="#032748">
+            <fill>
+                <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0" startX="0.1856060642" startY="0.2878787662">
+                    <stops>
+                        <Stop>
+                            <color>
+                                <Color red="0.043137256" green="0.117647059" blue="0.219607845" />
+                            </color>
+                        </Stop>
+                        <Stop offset="0.006729475">
+                            <color>
+                                <Color red="0.043137256" green="0.117647059" blue="0.219607845" />
+                            </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                            <color>
+                                <Color red="0.525490224" green="0.737254918" blue="0.937254906" />
+                            </color>
+                        </Stop>
+                    </stops>
+                </LinearGradient>
+            </fill>
+        </CubicCurve>
+        
+        <Text fill="WHITE" layoutX="41.0" layoutY="52.0" text="CitationApp">
+            <font>
+                <Font name="Goudy Old Style Bold" size="31.0" />
+            </font>
+        </Text>
+        
+        <CubicCurve controlX1="44.93" controlX2="303.53" controlY1="-87.0" controlY2="-41.05" endX="-157.0" endY="-96.8" layoutX="162.0" layoutY="97.0" startX="-157.0" startY="-62.656463623046875" stroke="#032748">
+            <fill>
+                <LinearGradient cycleMethod="REFLECT" endX="0.534090900963003" endY="1.0" startY="1.0">
+                    <stops>
+                        <Stop>
+                            <color>
+                                <Color red="0.043137256" green="0.117647059" blue="0.219607845" />
+                            </color>
+                        </Stop>
+                        <Stop offset="0.0067294751">
+                            <color>
+                                <Color red="0.043137256" green="0.117647059" blue="0.219607845" />
+                            </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                            <color>
+                                <Color red="0.525490224" green="0.737254918" blue="0.937254906" />
+                            </color>
+                        </Stop>
+                    </stops>
+                </LinearGradient>
+            </fill>
+        </CubicCurve>
+        
+        <!-- LABELS & CONTROLS -->
+        <Label layoutX="50.0" layoutY="100.0" style="-fx-font-family: 'Times New Roman'; -fx-font-size: 20px;" text="Compiled By:" textFill="WHITE" />
+        <ComboBox fx:id="compiledByComboBox" layoutX="180.0" layoutY="99.0" prefWidth="150.0" />
+        
+        <Label layoutX="50.0" layoutY="140.0" style="-fx-font-family: 'Times New Roman'; -fx-font-size: 20px;" text="Source Type:" textFill="WHITE" />
+        <ComboBox fx:id="sourceTypeComboBox" layoutX="180.0" layoutY="139.0" prefWidth="150.0" />
+        
+        <!-- FLOWPANE FOR AUTHORS -->
+        <Label layoutX="50.0" layoutY="180.0" style="-fx-font-family: 'Times New Roman'; -fx-font-size: 20px;" text="Authors:" textFill="WHITE" />
+        <FlowPane fx:id="authorsFlowPane" hgap="10.0" layoutX="72.0" layoutY="215.0" prefWrapLength="350.0" vgap="10.0">
+            <children>
+                <!-- One initial row of author fields, with smaller widths -->
+                <HBox spacing="10.0">
+                    <TextField fx:id="authorFirstNameField0" prefWidth="70.0" promptText="First" style="-fx-font-family: 'Times New Roman'; -fx-font-size: 18px;" />
+                    <TextField fx:id="authorMiddleNameField0" prefWidth="50.0" promptText="Middle" style="-fx-font-family: 'Times New Roman'; -fx-font-size: 18px;" />
+                    <TextField fx:id="authorLastNameField0" prefWidth="70.0" promptText="Last" style="-fx-font-family: 'Times New Roman'; -fx-font-size: 18px;" />
+                </HBox>
+            </children>
+        </FlowPane>
+        
+        <!-- BUTTONS -->
+        <Button fx:id="addAuthorButton" layoutX="50.0" layoutY="320.0" style="-fx-font-family: 'Times New Roman'; -fx-font-size: 20px;" text="Add Author" />
+        
+        <Button fx:id="nextButton" layoutX="400.0" layoutY="320.0" prefWidth="100.0" style="-fx-font-family: 'Times New Roman'; -fx-font-size: 20px;" text="Next" />
+    </children>
+</AnchorPane>
